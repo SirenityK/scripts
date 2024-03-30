@@ -31,6 +31,6 @@ You will see a menu where you will be able to select an option.
 
 ### Is this really necessary?
 
-- Nowadays there are tools everywhere to do all kinds of stuff, [ILovePDF](https://www.ilovepdf.com/) for example does this job better than this project (for now I hope), but there's a risk of privacy. Wi-Fi connection is needed to. Not very useful for very large files or hundreds of files.
+- Nowadays there are tools everywhere to do all kinds of stuff, [ILovePDF](https://www.ilovepdf.com/) for example does this job better than this project (for now I hope), but there's a risk of privacy. Wi-Fi connection is needed too. Not very useful for very large files or hundreds of files.
 - Adobe Acrobat can work on pdf and OCR flawlessly, but it is limited due to it being a paid application, and not many people are able to crack it and is illegal tho. This little tool is proven to be a lot faster in the simple tools of merging, encrypting, etc. and can even run on slower devices, also without requiring a gigabyte of space to install Acrobat.
 - Work with PDF and do OCR on text may be a computer-only task, for instance: to run it locally, you need Acrobat, which is only on windows, which means pc-only. This tool runs perfectly on android devices (with termux or a mobile python interpreter), which also makes it useful for a random moment when I might need it in life.
