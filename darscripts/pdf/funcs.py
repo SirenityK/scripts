@@ -1,13 +1,14 @@
 import os
 from glob import glob
 
+# not using pypdf because merged files are just duplicated in that package for some reason
 import PyPDF2 as pypdf
 
 
-def pdf_merge(outName: str, dir: str, recurse: str | bool = False):
-    recurse = True if recurse.lower() == "y" else False
-    if not outName.endswith(".pdf"):
-        outName += ".pdf"
+def pdf_merge(name: str, dir: str, recurse: str | bool = ""):
+    pwd = os.getcwd()
+    if not name.endswith(".pdf"):
+        name += ".pdf"
     os.chdir(dir.replace('"', ""))
 
     merger = pypdf.PdfWriter()
@@ -16,8 +17,10 @@ def pdf_merge(outName: str, dir: str, recurse: str | bool = False):
     else:
         files = glob("**/*.pdf", recursive=True)
 
-    if outName in files:
-        files.remove(outName)
+    files.sort()
+
+    if name in files:
+        files.remove(name)
 
     for i, pdf in enumerate(files):
         if not i % 5 and i != 0:
@@ -25,13 +28,14 @@ def pdf_merge(outName: str, dir: str, recurse: str | bool = False):
         merger.append(pdf)
 
     print("writing...")
-    merger.write(outName)
+    os.chdir(pwd)
+    merger.write(name)
     print("Done!")
 
 
 if __name__ == "__main__":
-    name = input("Enter the output file name: ")
+    fileName = input("Enter the output file name: ")
     dir = input("Paste the directory or nothing for ./: ")
     recurse = input("Recurse? (y/n): ")
 
-    pdf_merge(name, dir, recurse)
+    pdf_merge(fileName, dir, recurse)
